@@ -35,7 +35,5 @@ namespace FixtureFinder.Models
                 throw;
             }
         }
-
-        
     }
 }

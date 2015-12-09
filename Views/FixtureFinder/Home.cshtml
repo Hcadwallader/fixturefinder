@@ -31,7 +31,7 @@
                         <img class="second-slide img-responsive peopleCarouselImg text-center center-block" src="~/Images/resized moments.jpg" alt="Second slide">
                         <div class="container">
                             <div class="carousel-caption">
-                                <h1 class="caroseltext">for the unmissable momemt...</h1>
+                                <h1 class="caroseltext">for the unmissable moments...</h1>
                                 <button type="button" class="btn btn-primary btn-lg caroselbuttons" data-toggle="modal" data-target="#myModal">Get Started!</button>
                             </div>
                         </div>
@@ -75,12 +75,12 @@
 </button>*@
 
 <!-- Modal -->
-<div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
-        <div class="modal-content mstyling panel">
+        <div class="modal-content mstyling panel" id="modalcenter">
             <div class="modal-body">
                 <form action="@Url.Action("Results", "FixtureFinder")" method="get">
-                    <h4 class="modal-title panelheading" id="myModalLabel">Fixture Finder</h4>
+                    <h4 class="modal-title panelheading" id="myModalLabel">FixtureFinder</h4>
                     <br />
                     <br />
                     <label class="modaltext" for="exampleInputName2">Location</label>
@@ -91,7 +91,7 @@
                     <input type="text" class="form-control placeholdertext" name="days" placeholder="Number of days E.g. 2" />
                     @*Location  <input type="text" name="location" placeholder="E.g. Postcode or Town" />*@
                     <br />
-                   <button class="btn btn-primary buttonstyle caroselbuttons" type="submit">Go!</button>
+                   <button class="btn btn-primary caroselbuttons" type="submit">Go!</button>
                 </form>
             </div>
         </div>

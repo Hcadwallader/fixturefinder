@@ -7,13 +7,17 @@
     <div class="col-md-12" id="bg">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 panel panel-default panelstyle scrollbar">
-        <h3 class="panel-title fontstyling">Results</h3>
+        <h3 class="panel-title headingtext">Results</h3>
         <div class="panel-body">
             @foreach (Event e in Model)
             {
-                <p>@e.hometeam Vs @e.awayteam, @e.location @e.date.ToString("h:mm tt dddd d MMMM, yyyy ")
-                Distance: @e.distanceFriendly, Travel time: @e.durationFriendly</p>
-                <hr />
+                <div>
+                    <p>
+                        <h1 class="teamnametext">@e.hometeam Vs @e.awayteam, @e.location</h1> <h2 class="stadiumtext">@e.date.ToString("dddd d MMMM (yyyy), h:mm tt ")</h2>
+                        <h3 class="locationtext">Distance: @e.distanceFriendly, Travel time: @e.durationFriendly</h3>
+                    </p>
+                    <hr class="dividerwidth"/>
+                </div>
             }
             
         </div>
