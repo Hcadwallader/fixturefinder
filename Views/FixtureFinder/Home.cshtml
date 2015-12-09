@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "FixtureFinder";
+}
+
+<div class="container-fluid " role="main">
+    <div class="row">
+        <div class="col-xs-12 widescreen">
+            <!-- Carousel
+            ================================================== -->
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                    <li data-target="#myCarousel" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner center-block text-center" role="listbox">
+                    <div class="item active peopleCarouselImg">
+                        <img class="first-slide img-responsive peopleCarouselImg text-center center-block" src="~/Images/resized fans.jpg" alt="First slide">
+                        <div class="container">
+                            <div class="carousel-caption pull-right">
+                                <h1 class="caroseltext">Together as one...</h1>
+                                <button type="button" class="btn btn-primary btn-lg caroselbuttons" data-toggle="modal" data-target="#myModal">Get Started!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item peopleCarouselImg">
+                        <img class="second-slide img-responsive peopleCarouselImg text-center center-block" src="~/Images/resized moments.jpg" alt="Second slide">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1 class="caroseltext">for the unmissable momemt...</h1>
+                                <button type="button" class="btn btn-primary btn-lg caroselbuttons" data-toggle="modal" data-target="#myModal">Get Started!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item peopleCarouselImg">
+                        <img class="third-slide img-responsive peopleCarouselImg text-center center-block" src="~/Images/resizedhigherleaguesport.jpg" alt="Third slide">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1 class="caroseltext">from the highs...</h1>
+                                <button type="button" class="btn btn-primary btn-lg caroselbuttons" data-toggle="modal" data-target="#myModal">Get Started!</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item peopleCarouselImg">
+                        <img class="fourth-slide img-responsive peopleCarouselImg text-center center-block" src="~/Images/resizedlowerleague.jpg" alt="Fourth slide">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1 class="caroseltext">to the lows...</h1>
+                                <button type="button" class="btn btn-primary btn-lg caroselbuttons" data-toggle="modal" data-target="#myModal">Get Started!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item peopleCarouselImg">
+                        <img class="fifth-slide img-responsive peopleCarouselImg text-center center-block" src="~/Images/resized sportrelief.jpg" alt="Fifth slide">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1 class="caroseltext">We've got something for Everyone!</h1>
+                                <button type="button" class="btn btn-primary btn-lg caroselbuttons" data-toggle="modal" data-target="#myModal">Get Started!</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Button trigger modal -->
+@*<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    Get Started!
+</button>*@
+
+<!-- Modal -->
+<div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content mstyling panel">
+            <div class="modal-body">
+                <form action="@Url.Action("Results", "FixtureFinder")" method="get">
+                    <h4 class="modal-title panelheading" id="myModalLabel">Fixture Finder</h4>
+                    <br />
+                    <br />
+                    <label class="modaltext" for="exampleInputName2">Location</label>
+                    <input type="text" class="form-control placeholdertext" name="location" id="locater" placeholder="E.g. Postcode or Town">
+                    <br />
+                    <label class="modaltext" for="exampleInputName2">Days</label>
+                    <br />
+                    <input type="text" class="form-control placeholdertext" name="days" placeholder="Number of days E.g. 2" />
+                    @*Location  <input type="text" name="location" placeholder="E.g. Postcode or Town" />*@
+                    <br />
+                   <button class="btn btn-primary buttonstyle caroselbuttons" type="submit">Go!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

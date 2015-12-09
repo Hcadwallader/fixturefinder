@@ -1,0 +1,177 @@
+﻿.logoheading{
+    font-family: 'KGHAPPY';
+    font-size: 20px;
+    font-weight: 200;
+    color:#5ac3ec;
+    float: left;
+    padding: 15px 15px;
+    line-height: 15px;
+    box-sizing: border-box;
+}
+
+.logoheading:hover{
+    text-decoration: none;
+    color:#3cbbec;
+}
+
+.headingshadow{
+    font-family: 'KGHAPPY';
+    font-size: 20px;
+    font-weight: 200;
+    color:#5ac3ec;
+    float: left;
+    padding: 15px 15px;
+    line-height: 15px;
+    box-sizing: border-box;
+}
+
+.headingshadow:hover{
+    text-shadow: 1px 1px 1px #000;
+}
+
+
+
+@font-face {
+    font-family: 'KGHAPPY';
+    src: url('../fonts/KGHAPPY.ttf') format('truetype');
+}
+
+.navbarItem{
+    padding-left:40px;
+    padding-right:40px;
+    padding-top:10px;
+    color:#283018;   
+    font-family: 'Ubuntu-B';
+    font-size: 18px;
+}
+.navbarItem:hover{
+    text-shadow: 0.5px 0.5px 0.5px #000; 
+}
+@font-face {
+    font-family: 'Ubuntu-R';
+    src: url('../fonts/Ubuntu-R.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Ubuntu-B';
+    src: url('../fonts/Ubuntu-B.ttf') format('truetype');
+}
+.navbarcolor{
+    background-color:#f0eceb;
+}
+#bg{
+    background:url('/Images/resized fans.jpg') no-repeat center center;
+    height: 844px;
+}
+
+.border-right .navbarItem {
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 0px;
+}
+.peopleCarouselImg img {
+    width: 100%;
+    height: auto;
+    margin-top:0px;
+    padding-bottom:0px;
+}
+
+.bluerow{
+    background-color:#f0eceb;
+    padding-bottom: 0px;
+
+}
+.row.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+.fontstyling{
+    font-weight: 200;
+    padding-left: 16px;
+    padding-top:10px;
+    color:#283018;   
+    font-family: 'Ubuntu-B';
+    font-size: 18px;
+}
+
+.paneltext{
+   
+    padding-left:40px;
+    padding-right:40px;
+    padding-top:10px;
+    color:#283018;   
+    font-family: 'Ubuntu-B';
+    font-size: 18px;
+}
+
+.panelstyle{
+    margin-top:75px;
+    padding-top:20px;
+    background-color:#EDEDED;
+    height:750px;
+    overflow-y: scroll;
+    -webkit-scrollbar:no-button;  
+ 
+}
+.panel{
+	background-color: rgba(255, 255, 255, 0.9);
+	  }
+
+.buttonstyle{
+    padding-top: 5px;
+}
+.scrollbar{
+              
+    -webkit-scrollbar-button:;  
+    -webkit-scrollbar-track:;        
+    -webkit-scrollbar-track-piece:;  
+    -webkit-scrollbar-thumb:;        
+    -webkit-scrollbar-corner:;       
+    -webkit-resizer:;   
+}
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+.widescreen{
+    padding-left:0px;
+    padding-right:0px;
+}
+
+.panelheading{
+    font-family: 'KGHAPPY';
+    font-size: 20px;
+    font-weight: 200;
+    color:#5ac3ec;
+    float: left;
+}
+.caroseltext{
+    color:white;   
+    font-family: 'Ubuntu-R';
+    font-size: 30px;
+}
+.caroselbuttons{
+    color:white;   
+    font-family: 'Ubuntu-R';
+    font-size: 18px;
+}
+.modaltext{
+    color:#283018;   
+    font-family: 'Ubuntu-B';
+    font-size: 18px;
+}
+.placeholdertext{
+     color:#283018;   
+    font-family: 'Ubuntu-R';
+    font-size: 18px;
+}
+
