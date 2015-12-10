@@ -1,9 +1,28 @@
-﻿<!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-    </head>
-    <body>
+﻿@using FixtureFinder;
+@using FixtureFinder.Models;
 
-    </body>
-</html>
+@{
+ViewBag.Title = "mapdetails";
+}
+
+<div class="row">
+    <div class="col-md-12" id="bg">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 panel panel-default panelstyle scrollbar">
+                <h3 class="panel-title headingtext">Fixture Details</h3>
+                <div class="panel-body">
+                    <!--<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=location&destination=postcode&key=AIzaSyCGKm0iFBxIIIhc9rUlW5ATIIgKW6d-wkQ" allowfullscreen></iframe>-->
+                    <!--<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=CF110SE&destination=GL528TJ&key=AIzaSyCGKm0iFBxIIIhc9rUlW5ATIIgKW6d-wkQ" allowfullscreen></iframe> -->
+
+                    <iframe 
+                        width="600" 
+                        height="450" 
+                        frameborder="0" 
+                        style="border:0" 
+                        src="https://www.google.com/maps/embed/v1/directions?origin=@(ViewBag.userorigin)&destination=@(ViewBag.stadium.Latitude),@(ViewBag.stadium.Longitude)&key=AIzaSyCGKm0iFBxIIIhc9rUlW5ATIIgKW6d-wkQ" 
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

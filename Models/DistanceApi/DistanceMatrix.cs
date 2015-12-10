@@ -88,7 +88,7 @@ namespace FixtureFinder.Models
         {
             return "destinations=" + latitude + "," + longitude;
         }
-        
+       
         public String apiKey()
         {
             string apiKey = "AIzaSyCGKm0iFBxIIIhc9rUlW5ATIIgKW6d - wkQ";

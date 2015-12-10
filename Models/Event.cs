@@ -41,5 +41,12 @@ namespace FixtureFinder.Models
             this.time = time;
 
         }
+
+        // expose a method for retrieving the StadiumInfo related to the home team
+        public StadiumInfo GetStadium()
+        {
+            FixtureFinderEntities1 db = new FixtureFinderEntities1();
+            return db.StadiumInfos.Where(s => s.TeamName == this.hometeam).First();
+        }
     }
 }

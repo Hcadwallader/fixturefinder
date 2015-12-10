@@ -12,15 +12,20 @@
             @foreach (Event e in Model)
             {
                 <div>
-                    <p>
-                        <h1 class="teamnametext">@e.hometeam Vs @e.awayteam, @e.location</h1> <h2 class="stadiumtext">@e.date.ToString("dddd d MMMM (yyyy), h:mm tt ")</h2>
-                        <h3 class="locationtext">Distance: @e.distanceFriendly, Travel time: @e.durationFriendly</h3>
-                    </p>
+                    <h1 class="teamnametext">@e.hometeam Vs @e.awayteam, @e.location</h1>
+                    <a 
+                       class="btn btn-primary resultsbuttons" 
+                       href="@Url.Action("Fixturedetails", "FixtureFinder", new { stadium=e.GetStadium().Id, location=Request.QueryString["location"] })" 
+                       target="_blank">
+                            More information...
+                    </a>
+                    <h2 class="stadiumtext">@e.date.ToString("dddd d MMMM (yyyy), h:mm tt ")</h2>
+                    <h3 class="locationtext">Distance: @e.distanceFriendly, Travel time: @e.durationFriendly</h3>
                     <hr class="dividerwidth"/>
                 </div>
             }
             
-        </div>
+        </div> 
     </div>
 </div>
     </div>
