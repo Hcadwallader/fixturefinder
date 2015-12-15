@@ -10,6 +10,10 @@
     <Property Name="StadiumCapacity" Type="nvarchar" MaxLength="100" />
     <Property Name="Latitude" Type="nvarchar" MaxLength="100" />
     <Property Name="Longitude" Type="nvarchar" MaxLength="100" />
+    <Property Name="TeamNickName" Type="nvarchar" MaxLength="100" />
+    <Property Name="StadiumPicture" Type="nvarchar" MaxLength="100" />
+    <Property Name="StadiumDescription" Type="nvarchar" MaxLength="400" />
+    <Property Name="ClubCrest" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityContainer Name="FixtureFinderModelStoreContainer">
     <EntitySet Name="StadiumInfos" EntityType="Self.StadiumInfos" Schema="dbo" store:Type="Tables" />

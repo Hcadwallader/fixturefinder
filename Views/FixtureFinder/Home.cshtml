@@ -81,17 +81,37 @@
             <div class="modal-body">
                 <form action="@Url.Action("Results", "FixtureFinder")" method="get">
                     <h4 class="modal-title panelheading" id="myModalLabel">FixtureFinder</h4>
-                    <br />
-                    <br />
-                    <label class="modaltext" for="exampleInputName2">Location</label>
-                    <input type="text" class="form-control placeholdertext" name="location" id="locater" placeholder="E.g. Postcode or Town">
-                    <br />
-                    <label class="modaltext" for="exampleInputName2">Days</label>
-                    <br />
-                    <input type="text" class="form-control placeholdertext" name="days" placeholder="Number of days E.g. 2" />
-                    @*Location  <input type="text" name="location" placeholder="E.g. Postcode or Town" />*@
-                    <br />
-                   <button class="btn btn-primary caroselbuttons" type="submit">Go!</button>
+                        <br />
+                        <br />
+                    <div class="checkboxalign">
+                        <label class="modaltext checkboxheading" for="exampleInputName2">Mode of Travel</label>
+                        <div class="radio checkboxstying">
+                            <label class="placeholdertext" >
+                                <input type="radio" name="travelmode" value="driving"/> Driving
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label class="placeholdertext">
+                                <input type="radio" name="travelmode" value="walking" /> Walking
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label class="placeholdertext">
+                                <input type="radio" name="travelmode" value="transit"/> Public Transport
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="modaltext" for="exampleInputName2">Location</label>
+                        <input type="text" class="form-control placeholdertext" name="location" id="locater" placeholder="E.g. Postcode or Town">
+                    </div>
+                    <div class="form-group">
+                        <label class="modaltext" for="exampleInputName2">Days</label>
+                        <input type="text" class="form-control placeholdertext" name="days" placeholder="Number of days E.g. 2" />
+                    </div>
+                    
+                        @*Location  <input type="text" name="location" placeholder="E.g. Postcode or Town" />*@
+                        <button class="btn btn-primary caroselbuttons" type="submit">Go!</button>
                 </form>
             </div>
         </div>

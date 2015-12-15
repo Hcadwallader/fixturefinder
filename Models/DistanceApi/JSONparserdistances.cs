@@ -53,7 +53,7 @@ namespace FixtureFinder.Models.DistanceApi
         {
             // this line is using the Json.Net classes to convert to a list of Strings
             GoogleApiStructure google = JsonConvert.DeserializeObject<GoogleApiStructure>(jsonString);
-            int result = -1;
+            int result = FixtureRetriever.SLIGHTLY_SMALLER_BIG_NUMBER;
 
             foreach (Row row in google.rows)
             {
@@ -74,7 +74,7 @@ namespace FixtureFinder.Models.DistanceApi
         {
             // this line is using the Json.Net classes to convert to a list of Strings
             GoogleApiStructure google = JsonConvert.DeserializeObject<GoogleApiStructure>(jsonString);
-            int result = -2;
+            int result = FixtureRetriever.SLIGHTLY_SMALLER_BIG_NUMBER;
 
             foreach (Row row in google.rows)
             {
@@ -95,7 +95,7 @@ namespace FixtureFinder.Models.DistanceApi
         {
             // this line is using the Json.Net classes to convert to a list of Strings
             GoogleApiStructure google = JsonConvert.DeserializeObject<GoogleApiStructure>(jsonString);
-            string result = "unknown";
+            string result = FixtureRetriever.WHEN_NO_VALUE;
 
             foreach (Row row in google.rows)
             {

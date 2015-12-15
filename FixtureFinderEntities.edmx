@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FixtureFinderModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FixtureFinderModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="StadiumInfos">
           <Key>
             <PropertyRef Name="Id" />
@@ -15,12 +15,15 @@
           <Property Name="StadiumCapacity" Type="nvarchar" MaxLength="100" />
           <Property Name="Latitude" Type="nvarchar" MaxLength="100" />
           <Property Name="Longitude" Type="nvarchar" MaxLength="100" />
+          <Property Name="TeamNickName" Type="nvarchar" MaxLength="100" />
+          <Property Name="StadiumPicture" Type="nvarchar" MaxLength="100" />
+          <Property Name="StadiumDescription" Type="nvarchar" MaxLength="400" />
+          <Property Name="ClubCrest" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityContainer Name="FixtureFinderModelStoreContainer">
           <EntitySet Name="StadiumInfos" EntityType="Self.StadiumInfos" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FixtureFinderModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -34,6 +37,10 @@
           <Property Name="StadiumCapacity" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Latitude" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Longitude" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TeamNickName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="StadiumPicture" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="StadiumDescription" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="ClubCrest" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="FixtureFinderEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="StadiumInfos" EntityType="Self.StadiumInfo" />
@@ -47,6 +54,10 @@
           <EntitySetMapping Name="StadiumInfos">
             <EntityTypeMapping TypeName="FixtureFinderModel.StadiumInfo">
               <MappingFragment StoreEntitySet="StadiumInfos">
+                <ScalarProperty Name="ClubCrest" ColumnName="ClubCrest" />
+                <ScalarProperty Name="StadiumDescription" ColumnName="StadiumDescription" />
+                <ScalarProperty Name="StadiumPicture" ColumnName="StadiumPicture" />
+                <ScalarProperty Name="TeamNickName" ColumnName="TeamNickName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="StadiumName" ColumnName="StadiumName" />
                 <ScalarProperty Name="TeamName" ColumnName="TeamName" />

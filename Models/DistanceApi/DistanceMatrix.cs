@@ -14,7 +14,7 @@ namespace FixtureFinder.Models
 	public class DistanceMatrix
 	{
 
-        public List<Event> distancefromLocation(List<Event> events, string location) //adding in the events to the parameter
+        public List<Event> distancefromLocation(List<Event> events, string location, string travelmode) //adding in the events to the parameter
         {
             ApiCaller api = new ApiCaller();
             JSONparser jsonParser = new JSONparser();
@@ -32,7 +32,7 @@ namespace FixtureFinder.Models
             foreach(Event currentEvent in events)
             {
                 //currentEvent.distance = getDistanceFromAtoB(location, currentEvent.locationLatitude, currentEvent.locationLongitude);
-                PopulateEventWithDistances(currentEvent, location);
+                PopulateEventWithDistances(currentEvent, location, travelmode);
             }
 
             // returns the events
@@ -42,7 +42,7 @@ namespace FixtureFinder.Models
         // new method . Uses the GoogleAPI to work out the distance from A to B
         //might want to swap this, so that it gets the location and time taken, in which case you'll want to pass in the object instead of locationB...
         //public int getDistanceFromAtoB(String locationA, String locationB)
-        public int getDistanceFromAtoB(String locationA, String locationBLatitude, String locationBLongitude)
+        public int getDistanceFromAtoB(String locationA, String locationBLatitude, String locationBLongitude, string travelmode)
         {
             // setting up the variables
             ApiCaller api = new ApiCaller();
@@ -50,21 +50,23 @@ namespace FixtureFinder.Models
             String apiAddress = "https://maps.googleapis.com/maps/api/distancematrix/json";
 
             // calling the api
-            String jsonString = api.GET(apiAddress + "?" + origin(locationA) + "&" + destination(locationBLatitude, locationBLongitude) + "&" + apiKey());
+            String jsonString = api.GET(apiAddress + "?" + origin(locationA) + "&" + destination(locationBLatitude, locationBLongitude) + "&" + mode(travelmode) + "&" + apiKey());
 
             // parse and return the result
             return jsonParser.extractDistanceFromGoogleMapsJsonString(jsonString);
         }
 
-        public Event PopulateEventWithDistances(Event currentEvent, String locationA)
+        public Event PopulateEventWithDistances(Event currentEvent, String locationA, string travelmode)
         {
             // setting up the variables
             ApiCaller api = new ApiCaller();
             JSONparserdistances jsonParser = new JSONparserdistances(); // Changed this too the new JSON parser
             String apiAddress = "https://maps.googleapis.com/maps/api/distancematrix/json";
 
+            String addressToCall = apiAddress + "?" + origin(locationA) + "&" + destination(currentEvent.locationLatitude, currentEvent.locationLongitude) + "&" + mode(travelmode) + "&" + apiKey();
+
             // calling the api
-            String jsonString = api.GET(apiAddress + "?" + origin(locationA) + "&" + destination(currentEvent.locationLatitude, currentEvent.locationLongitude) + "&" + apiKey());
+            String jsonString = api.GET(addressToCall);
 
             currentEvent.distance = jsonParser.extractDistanceFromGoogleMapsJsonString(jsonString);
             currentEvent.duration = jsonParser.extractTimeTakenFromGoogleMapsJsonString(jsonString);
@@ -88,6 +90,11 @@ namespace FixtureFinder.Models
         {
             return "destinations=" + latitude + "," + longitude;
         }
+
+        public String mode (string travelmode)
+        {
+            return "mode=" + travelmode;
+        }
        
         public String apiKey()
         {
@@ -98,8 +105,16 @@ namespace FixtureFinder.Models
         public string convertFromMetersToMiles(int distance)
         {
             string distanceFriendly;
-            double distanceTemporary = distance / 1609.34;
-            distanceFriendly = "" + Math.Round(distanceTemporary, 2) + " miles";
+
+            if(distance == FixtureRetriever.SLIGHTLY_SMALLER_BIG_NUMBER) //== is comparing 2 things and returns bool, but = is setting to something
+            {
+                distanceFriendly = FixtureRetriever.WHEN_NO_VALUE;
+            } else
+            {
+                double distanceTemporary = distance / 1609.34;
+                distanceFriendly = "" + Math.Round(distanceTemporary, 2) + " miles";
+            }
+
             return distanceFriendly;
         }
     }

@@ -10,6 +10,10 @@
     <Property Name="StadiumCapacity" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Latitude" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Longitude" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TeamNickName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="StadiumPicture" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="StadiumDescription" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="ClubCrest" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityContainer Name="FixtureFinderEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="StadiumInfos" EntityType="Self.StadiumInfo" />

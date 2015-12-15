@@ -9,18 +9,22 @@ ViewBag.Title = "mapdetails";
     <div class="col-md-12" id="bg">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 panel panel-default panelstyle scrollbar">
-                <h3 class="panel-title headingtext">Fixture Details</h3>
                 <div class="panel-body">
+                    <p class="teamnametext alignheading"><img class="sizing" src="@(ViewBag.e.homecrest)" /> @ViewBag.e.homenickname Vs @ViewBag.e.awaynickname <img class="sizing" src="@(ViewBag.e.awaycrest)" /></p>
                     <!--<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=location&destination=postcode&key=AIzaSyCGKm0iFBxIIIhc9rUlW5ATIIgKW6d-wkQ" allowfullscreen></iframe>-->
                     <!--<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=CF110SE&destination=GL528TJ&key=AIzaSyCGKm0iFBxIIIhc9rUlW5ATIIgKW6d-wkQ" allowfullscreen></iframe> -->
 
-                    <iframe 
-                        width="600" 
-                        height="450" 
+                    <iframe class="iframestyling"
+                        width="390" 
+                        height="300" 
                         frameborder="0" 
                         style="border:0" 
-                        src="https://www.google.com/maps/embed/v1/directions?origin=@(ViewBag.userorigin)&destination=@(ViewBag.stadium.Latitude),@(ViewBag.stadium.Longitude)&key=AIzaSyCGKm0iFBxIIIhc9rUlW5ATIIgKW6d-wkQ" 
+                        src="https://www.google.com/maps/embed/v1/directions?origin=@(ViewBag.userorigin)&destination=@(ViewBag.stadium.Latitude),@(ViewBag.stadium.Longitude)&mode=@(ViewBag.modeoftravel)&key=AIzaSyCGKm0iFBxIIIhc9rUlW5ATIIgKW6d-wkQ" 
                         allowfullscreen></iframe>
+
+                    <div class="aligntext">
+                        <img class="alignstadium" src="@(ViewBag.e.picture)" /><h1 class="headingtext headingalign">@(ViewBag.e.location)</h1><p class="placeholdertext">@ViewBag.e.description</p>
+                    </div>
                 </div>
             </div>
         </div>

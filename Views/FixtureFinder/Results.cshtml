@@ -12,10 +12,10 @@
             @foreach (Event e in Model)
             {
                 <div>
-                    <h1 class="teamnametext">@e.hometeam Vs @e.awayteam, @e.location</h1>
+                    <h1 class="teamnametext"> <img class="sizing" src="@(e.homecrest)" /> @e.homenickname Vs @e.awaynickname <img class="sizing" src="@(e.awaycrest)"/>, @e.location</h1>
                     <a 
                        class="btn btn-primary resultsbuttons" 
-                       href="@Url.Action("Fixturedetails", "FixtureFinder", new { stadium=e.GetStadium().Id, location=Request.QueryString["location"] })" 
+                       href="@Url.Action("Fixturedetails", "FixtureFinder", new { stadium=e.GetStadium().Id, location=Request.QueryString["location"], href=e.href, travelmode=Request.QueryString["travelmode"]})" 
                        target="_blank">
                             More information...
                     </a>

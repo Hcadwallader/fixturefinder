@@ -20,5 +20,9 @@ namespace FixtureFinder
         public string StadiumCapacity { get; set; }
         public string Latitude { get; set; }
         public string Longitude { get; set; }
+        public string TeamNickName { get; set; }
+        public string StadiumPicture { get; set; }
+        public string StadiumDescription { get; set; }
+        public string ClubCrest { get; set; }
     }
 }

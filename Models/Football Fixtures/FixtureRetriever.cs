@@ -15,22 +15,20 @@ namespace FixtureFinder.Models
 {
     public class FixtureRetriever
     {
-        public List<Event> getPremierLeagueFixtures(string days, String location) //  Added in a location string to the parameters
+        // 
+        public const int REALLY_REALLY_BIG_NUMBER    = 100000001;
+        public const int SLIGHTLY_SMALLER_BIG_NUMBER = 100000000;
+        public const string WHEN_NO_VALUE = "unknown";
+
+        public List<Event> getPremierLeagueFixtures(string days, string location, string travelmode) //  Added in a location string to the parameters
         {
-            ApiCaller api = new ApiCaller();
-            JSONparser jsonParser = new JSONparser();
             DatabaseCaller databaseCaller = new DatabaseCaller();
             DistanceMatrix distanceMatrix = new DistanceMatrix();
             Eventsorter eventSorter = new Eventsorter();
-           
 
-            String apiAddress = "http://api.football-data.org/v1/soccerseasons/398/fixtures";
+            // need to get the api results for the given days
+            List<Event> events = this.GetEvents(days);
 
-            // calls the API and gets a String
-            String jsonString = api.GET(apiAddress + urlParameters(days));
-
-            // convert the string to a list of events – see below for this method
-            List<Event> events = jsonParser.GetInfoFromWholeFootballDataComJSONstring(jsonString);
 
             // Maybe make a method like this too alter names of teams to less formal ones
             //events = standardizeEvents(events);
@@ -39,12 +37,27 @@ namespace FixtureFinder.Models
             events = databaseCaller.populateStadiumInformation(events);
 
             // looking up the distance from current location to the stadiums
-            events = distanceMatrix.distancefromLocation(events, location); // Added in the events to the parameters
+            events = distanceMatrix.distancefromLocation(events, location, travelmode); // Added in the events to the parameters
 
             events = eventSorter.SortByTravelTime(events);
 
             // returns the events
             return events;
+        }
+
+        public List<Event> GetEvents(string days)
+        {
+            String apiAddress = "http://api.football-data.org/v1/soccerseasons/398/fixtures";
+            string apiAddressWithParams = apiAddress + urlParameters(days);
+
+            ApiCaller api = new ApiCaller();
+            String jsonString = api.GET(apiAddressWithParams);
+
+            // calls the API and gets a String
+
+            // convert the string to a list of events – see below for this method
+            JSONparser jsonParser = new JSONparser();
+            return jsonParser.GetInfoFromWholeFootballDataComJSONstring(jsonString);
         }
 
         public String urlParameters(string numberOfDaysToGetFixturesFor)

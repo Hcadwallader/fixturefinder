@@ -31,7 +31,7 @@ namespace FixtureFinder.Models
         {
             Event shortDistanceEvent = new Event();
             int numberOfEventsInList = originalEvents.Count();
-            int distance = 100000000;
+            int distance = FixtureRetriever.REALLY_REALLY_BIG_NUMBER;
 
             foreach (Event e in originalEvents)
             {

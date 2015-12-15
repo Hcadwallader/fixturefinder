@@ -199,12 +199,12 @@
     <Compile Include="Models\DistanceApi\Element.cs" />
     <Compile Include="Models\DistanceApi\GoogleApiStructure.cs" />
     <Compile Include="Models\DistanceApi\JSONparserdistances.cs" />
-    <Compile Include="Models\DistanceApi\Mapping.cs" />
     <Compile Include="Models\DistanceApi\Row.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Eventsorter.cs" />
     <Compile Include="Models\Football Fixtures\Feed\FeedFixture.cs" />
     <Compile Include="Models\Football Fixtures\Feed\FeedResult.cs" />
+    <Compile Include="Models\Football Fixtures\Feed\Link.cs" />
     <Compile Include="Models\Football Fixtures\FixtureList.cs" />
     <Compile Include="Models\Football Fixtures\FootballFixturesModels.cs" />
     <Compile Include="Models\ApiCaller.cs" />
@@ -212,6 +212,8 @@
     <Compile Include="Models\Football Fixtures\FixtureRetriever.cs" />
     <Compile Include="Models\default stuff\IdentityModels.cs" />
     <Compile Include="Models\default stuff\ManageViewModels.cs" />
+    <Compile Include="Models\WeatherApi\WeatherForecaster.cs" />
+    <Compile Include="Models\WeatherApi\WeatherJSONParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StadiumInfo.cs">
       <DependentUpon>FixtureFinderEntities.tt</DependentUpon>

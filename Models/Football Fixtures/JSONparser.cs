@@ -49,6 +49,7 @@ namespace FixtureFinder.Models
 
             newEvent.date = convertdate(fixture.date);
             newEvent.hometeam = fixture.homeTeamName;
+            newEvent.href = fixture._links.self["href"];
             newEvent.awayteam = fixture.awayTeamName;
             
             // etc. etc.

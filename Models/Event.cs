@@ -26,7 +26,14 @@ namespace FixtureFinder.Models
         public String distanceFriendly { get; set; }
         public int duration { get; set; }// duration of journey time to get there...
         public String durationFriendly { get; set; }
-
+        public String homecrest { get; set; }
+        public String awaycrest { get; set; }
+        public String homenickname { get; set; }
+        public String awaynickname { get; set; }
+        public int stadiumcapacity { get; set; }
+        public String description { get; set; }
+        public String picture { get; set; }
+        public String href { get; set; }
 
 
         public Event()

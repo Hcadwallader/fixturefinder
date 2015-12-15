@@ -49,6 +49,16 @@ namespace FixtureFinder.Models
                     eventObject.location = stadium.StadiumName;
                     eventObject.locationLatitude = stadium.Latitude;
                     eventObject.locationLongitude = stadium.Longitude;
+                    eventObject.homenickname = stadium.TeamNickName;
+                    eventObject.stadiumcapacity = Convert.ToInt32(stadium.StadiumCapacity);
+                    eventObject.description = stadium.StadiumDescription;
+                    eventObject.picture = stadium.StadiumPicture;
+                    eventObject.homecrest = stadium.ClubCrest;
+
+                    stadium = premierleaguegrounds.StadiumInfos.Single(s => s.TeamName == eventObject.awayteam);
+
+                    eventObject.awaycrest = stadium.ClubCrest;
+                    eventObject.awaynickname = stadium.TeamNickName;
 
                     // ... will be caught here ...
                 } catch (InvalidOperationException e) // this is saying catch InvalidOperationExceptions and assign the error to 'e' within the code (so you can reference it)
