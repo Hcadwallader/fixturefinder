@@ -54,6 +54,10 @@ namespace FixtureFinder.Models
                     eventObject.description = stadium.StadiumDescription;
                     eventObject.picture = stadium.StadiumPicture;
                     eventObject.homecrest = stadium.ClubCrest;
+                    eventObject.website = stadium.WebAddress;
+                    eventObject.ticketoffice = stadium.TicketOffice;
+                    eventObject.address = stadium.Address;
+
 
                     stadium = premierleaguegrounds.StadiumInfos.Single(s => s.TeamName == eventObject.awayteam);
 

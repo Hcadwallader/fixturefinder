@@ -4,6 +4,9 @@
     <EntitySetMapping Name="StadiumInfos">
       <EntityTypeMapping TypeName="FixtureFinderModel.StadiumInfo">
         <MappingFragment StoreEntitySet="StadiumInfos">
+          <ScalarProperty Name="WebAddress" ColumnName="WebAddress" />
+          <ScalarProperty Name="TicketOffice" ColumnName="TicketOffice" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="ClubCrest" ColumnName="ClubCrest" />
           <ScalarProperty Name="StadiumDescription" ColumnName="StadiumDescription" />
           <ScalarProperty Name="StadiumPicture" ColumnName="StadiumPicture" />

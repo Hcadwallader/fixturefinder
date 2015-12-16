@@ -24,5 +24,8 @@ namespace FixtureFinder
         public string StadiumPicture { get; set; }
         public string StadiumDescription { get; set; }
         public string ClubCrest { get; set; }
+        public string Address { get; set; }
+        public string TicketOffice { get; set; }
+        public string WebAddress { get; set; }
     }
 }

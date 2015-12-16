@@ -11,9 +11,12 @@
     <Property Name="Latitude" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Longitude" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="TeamNickName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="StadiumPicture" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="StadiumPicture" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="StadiumDescription" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
     <Property Name="ClubCrest" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="TicketOffice" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="WebAddress" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityContainer Name="FixtureFinderEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="StadiumInfos" EntityType="Self.StadiumInfo" />

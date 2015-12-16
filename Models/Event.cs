@@ -34,7 +34,9 @@ namespace FixtureFinder.Models
         public String description { get; set; }
         public String picture { get; set; }
         public String href { get; set; }
-
+        public String address { get; set; }
+        public String ticketoffice { get; set; }
+        public String website { get; set; }
 
         public Event()
         {

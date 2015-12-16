@@ -13,6 +13,9 @@ ViewBag.Title = "mapdetails";
                     <p class="teamnametext alignheading"><img class="sizing" src="@(ViewBag.e.homecrest)" /> @ViewBag.e.homenickname Vs @ViewBag.e.awaynickname <img class="sizing" src="@(ViewBag.e.awaycrest)" /></p>
                     <!--<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=location&destination=postcode&key=AIzaSyCGKm0iFBxIIIhc9rUlW5ATIIgKW6d-wkQ" allowfullscreen></iframe>-->
                     <!--<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=CF110SE&destination=GL528TJ&key=AIzaSyCGKm0iFBxIIIhc9rUlW5ATIIgKW6d-wkQ" allowfullscreen></iframe> -->
+                    
+                    <h3 class="placeholdertext datealign">@(ViewBag.e.date.ToString("dddd d MMMM (yyyy), h:mm tt "))</h3>
+
 
                     <iframe class="iframestyling"
                         width="390" 
@@ -21,9 +24,17 @@ ViewBag.Title = "mapdetails";
                         style="border:0" 
                         src="https://www.google.com/maps/embed/v1/directions?origin=@(ViewBag.userorigin)&destination=@(ViewBag.stadium.Latitude),@(ViewBag.stadium.Longitude)&mode=@(ViewBag.modeoftravel)&key=AIzaSyCGKm0iFBxIIIhc9rUlW5ATIIgKW6d-wkQ" 
                         allowfullscreen></iframe>
-
+                    <div class="alignmaptext">
+                        <br/>
+                        <p class="placeholdertext">Location: @(ViewBag.e.location)</p>
+                        <p class="placeholdertext">Address: @(ViewBag.e.address)</p>
+                        <p class="placeholdertext distancepadding">Distance: @(ViewBag.e.distanceFriendly)</p>
+                        <p class="placeholdertext">Capacity: @(ViewBag.e.stadiumcapacity.ToString("N0"))</p>      
+                        <p class="placeholdertext">Ticket Office: @(ViewBag.e.ticketoffice) </p>
+                        <p class="placeholdertext websitealign">@ViewBag.e.homenickname website: <a href="@(ViewBag.e.website)" target="_blank"/>@(ViewBag.e.website)</p>
+                    </div>
                     <div class="aligntext">
-                        <img class="alignstadium" src="@(ViewBag.e.picture)" /><h1 class="headingtext headingalign">@(ViewBag.e.location)</h1><p class="placeholdertext">@ViewBag.e.description</p>
+                        <img class="alignstadium" src="@(ViewBag.e.picture)" /><h1 class="headingtext headingalign">@(ViewBag.e.location)</h1><p class="placeholdertext fontalign">@ViewBag.e.description</p>
                     </div>
                 </div>
             </div>
