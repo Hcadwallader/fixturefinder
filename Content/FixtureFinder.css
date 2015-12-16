@@ -350,4 +350,17 @@
     text-align:right;
 }
 
+.mapheight{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.interactivemapstyle{
+    width:390px;
+    height:300px;
+    float:right;
+    padding-top:10px;
+}
+
 

@@ -4,7 +4,7 @@
 @{
 ViewBag.Title = "mapdetails";
 }
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCGKm0iFBxIIIhc9rUlW5ATIIgKW6d-wkQ"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCGKm0iFBxIIIhc9rUlW5ATIIgKW6d-wkQ&libraries=places"></script>
 <div class="row">
     <div class="col-md-12" id="bg">
         <div class="row">
@@ -33,16 +33,17 @@ ViewBag.Title = "mapdetails";
                     <div class="aligntext">
                         <img class="alignstadium" src="@(ViewBag.e.picture)" /><h1 class="headingtext headingalign">@(ViewBag.e.location)</h1><p class="placeholdertext fontalign">@ViewBag.e.description</p>
                     </div>
-                    <div class="interactivemapstyle" id="googleMap">
+                    <div id="googleMap" style="width:500px;height:380px;">
                         <script>
-                            var myCenter=new google.maps.LatLng(@(ViewBag.stadium.Latitude), @(ViewBag.stadium.Longitude));
+                           
                             function initialize() {
-
+                             var myCenter=new google.maps.LatLng(@(ViewBag.stadium.Latitude), @(ViewBag.stadium.Longitude));
                                 var mapProp = {
                                     center: myCenter,
                                     zoom: 14,
                                     mapTypeId: google.maps.MapTypeId.ROADMAP
                                 };
+
                                 function loadScript() {
                                     var script = document.createElement("script");
                                     script.src = "http://maps.googleapis.com/maps/api/js?callback=initialize";
@@ -50,6 +51,24 @@ ViewBag.Title = "mapdetails";
                                 }
 
                                 window.onload = loadScript;
+
+                                var request = {
+                                    location: myCenter,
+                                    radius: '1000',
+                                    query: 'restaurant'
+                                };
+
+                                service = new google.maps.places.PlacesService(map);
+                                service.textSearch(request, callback);
+                            }
+                            function callback(results, status) {
+                                if (status == google.maps.places.PlacesServiceStatus.OK) {
+                                    for (var i = 0; i < results.length; i++) {
+                                        var place = results[i];
+                                        createMarker(results[i]);
+                                    }
+                                }
+                            }
 
 
                                 var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
