@@ -30,14 +30,6 @@ namespace FixtureFinder.Models
             foreach(Event eventObject in events)
             {
 
-                // Arrgh!! Don't do this!! Change the values in the database!
-                //// this is changing specific teams to match what's in the database - the API returns formal names, database is informal...
-                //eventObject.hometeam = eventObject.hometeam.Replace(" FC", "");
-                //eventObject.hometeam = eventObject.hometeam.Replace("AFC ", "");
-                //eventObject.hometeam = eventObject.hometeam.Replace("Stoke City", "Stoke");
-                //eventObject.hometeam = eventObject.hometeam.Replace("West Ham United", "West Ham");
-                //eventObject.hometeam = eventObject.hometeam.Replace("Sunderland AFC", "Sunderland");
-
                 // start of the try block.  Any exceptions thrown in here ...
                 try
                 {

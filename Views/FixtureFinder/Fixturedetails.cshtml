@@ -4,7 +4,7 @@
 @{
 ViewBag.Title = "mapdetails";
 }
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCGKm0iFBxIIIhc9rUlW5ATIIgKW6d-wkQ"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCGKm0iFBxIIIhc9rUlW5ATIIgKW6d-wkQ&signed_in=true&libraries=places&callback=initialize" async defer></script>
 <div class="row">
     <div class="col-md-12" id="bg">
         <div class="row">
@@ -33,32 +33,42 @@ ViewBag.Title = "mapdetails";
                     <div class="aligntext">
                         <img class="alignstadium" src="@(ViewBag.e.picture)" /><h1 class="headingtext headingalign">@(ViewBag.e.location)</h1><p class="placeholdertext fontalign">@ViewBag.e.description</p>
                     </div>
+                    <div class="adjustlocation">
+                        <h1 class="headingtext">Map key:</h1>
+                        <p class="placeholdertext"><img src="/Images/football2.png" /> Stadium </p>
+                        <p class="placeholdertext"><img src="/Images/restaurant.png" /> Restaurants </p>
+                        <p class="placeholdertext"><img src="/Images/pub.png" /> Pubs </p>
+                        <p class="placeholdertext"><img class="imagesize" src="/Images/parking.png" /> Parking </p>
+                    </div>
                     <div class="interactivemapstyle" id="googleMap">
                         <script>
-                            var myCenter=new google.maps.LatLng(@(ViewBag.stadium.Latitude), @(ViewBag.stadium.Longitude));
+                            var map;
+                            var service;
+                            var infowindow;
                             function initialize() {
-
+                            var stadium = new google.maps.LatLng(@(ViewBag.stadium.Latitude), @(ViewBag.stadium.Longitude));
+                                var myCenter=new google.maps.LatLng(@(ViewBag.stadium.Latitude), @(ViewBag.stadium.Longitude));
                                 var mapProp = {
                                     center: myCenter,
                                     zoom: 14,
                                     mapTypeId: google.maps.MapTypeId.ROADMAP
                                 };
+                                
                                 function loadScript() {
                                     var script = document.createElement("script");
-                                    script.src = "http://maps.googleapis.com/maps/api/js?callback=initialize";
+                                    script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyCGKm0iFBxIIIhc9rUlW5ATIIgKW6d-wkQ&signed_in=true&libraries=places&callback=initialize";
                                     document.body.appendChild(script);
                                 }
 
                                 window.onload = loadScript;
 
-
-                                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                                map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
                                 var marker=new google.maps.Marker({
                                     map: map,
-                                    draggable: true,
                                     animation: google.maps.Animation.DROP,
                                     position: myCenter,
-                                    icon:'/Images/football.png'
+                                    draggable:true,
+                                    icon:'/Images/football2.png'
                                 });
                                 marker.addListener('click', toggleBounce);
 
@@ -71,10 +81,82 @@ ViewBag.Title = "mapdetails";
                                 }
 
                                 marker.setMap(map);
-                            };
-                            google.maps.event.addDomListener(window, 'load', initialize);
 
+                                // add anymore searches you want to do onto here!
+                                restaurant_search(google, stadium);
+                                pub_search(google, stadium);
+                                parking_search(google, stadium);
+                            }
+                            
+                            // this function makes the call to google
+                            function restaurant_search(google, stadium) {                                
+                                var request = {
+                                location: stadium,
+                                radius: '500',
+                                query: 'restaurant'
+                                };
+                                service = new google.maps.places.PlacesService(map);
+                                service.textSearch(request, restaurant_callback);
+                            }
+
+                            // this function handles the response from google
+                            function restaurant_callback(results, status) {
+                                if (status == google.maps.places.PlacesServiceStatus.OK) {
+                                    for (var i = 0; i < results.length; i++) {
+                                        createMarker(results[i].geometry.location, map,'/Images/restaurant.png');
+                                    }
+                                }
+                            }
+                            
+                            function pub_search(google, stadium) {                                
+                                var request = {
+                                    location: stadium,
+                                    radius: '500',
+                                    query: 'pub'
+                                };
+                                service = new google.maps.places.PlacesService(map);
+                                service.textSearch(request, pub_callback);
+                            }
+
+                            function pub_callback(results, status) {
+                                if (status == google.maps.places.PlacesServiceStatus.OK) {
+                                    for (var i = 0; i < results.length; i++) {
+                                        createMarker(results[i].geometry.location, map, '/Images/pub.png');
+                                    }
+                                }
+                            }
+
+                            function parking_search(google, stadium) {                                
+                                var request = {
+                                    location: stadium,
+                                    radius: '500',
+                                    query: 'parking'
+                                };
+                                service = new google.maps.places.PlacesService(map);
+                                service.textSearch(request, parking_callback);
+                            }
+
+                            function parking_callback(results, status) {
+                                if (status == google.maps.places.PlacesServiceStatus.OK) {
+                                    for (var i = 0; i < results.length; i++) {
+                                        createMarker(results[i].geometry.location, map, '/Images/parking.png');
+                                    }
+                                }
+                            }
+
+                            // Adds a marker to the map.
+                            function createMarker(location, map, icon) {
+                                var marker = new google.maps.Marker({
+                                    position: location,
+                                    icon: icon,
+                                    map: map
+                                });
+                            }
+
+
+                            google.maps.event.addDomListener(window, 'load', initialize);
                         </script>
+                        
                     </div>
 
                 </div>

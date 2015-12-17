@@ -78,13 +78,16 @@ public class FixtureFinderController : Controller
         Event newEvent = null;
 
         List<Event> events = (List<Event>)this.Session["events"];
-        foreach(Event e in events)
+        if (events != null) // checking that you've managed to find the events in the session, will just return null if you haven't
         {
-            if (e.href.Equals(href))
+            foreach(Event e in events)
             {
-                // wayhay! we've found the event!
-                newEvent = e;
-                break;
+                if (e.href.Equals(href))
+                {
+                    // wayhay! we've found the event!
+                    newEvent = e;
+                    break;
+                }
             }
         }
 
@@ -103,15 +106,24 @@ public class FixtureFinderController : Controller
 
         // need to lookup the event info, keyed against the given href
         Event e = this.LookupEvent(href);
-        
-        // convert to an int (since db lookup requires an int
-        int stadiumId = Convert.ToInt32(stadium);
-        StadiumInfo stadiuminfo = db.StadiumInfos.Find(stadiumId);
-        
-        ViewBag.stadium = stadiuminfo; 
-        ViewBag.userorigin = userorigin;
-        ViewBag.modeoftravel = modeoftravel;
-        ViewBag.e = e;
-        return View();
+
+        if (e != null)
+        {
+            // convert to an int (since db lookup requires an int
+            int stadiumId = Convert.ToInt32(stadium);
+            StadiumInfo stadiuminfo = db.StadiumInfos.Find(stadiumId);
+
+            ViewBag.stadium = stadiuminfo;
+            ViewBag.userorigin = userorigin;
+            ViewBag.modeoftravel = modeoftravel;
+            ViewBag.e = e;
+            return View();
+        } else
+        {
+            // the event is null (wasn't found in the view.
+            // show the user some sort of error page?
+            return RedirectToAction("home", "FixtureFinder");
+            //return Home(); // redirect them to the home page!
+        }
     }
 }
