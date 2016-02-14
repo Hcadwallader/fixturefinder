@@ -64,7 +64,12 @@
 #bg{
     background:url('/Images/resized fans.jpg') no-repeat center center;
     height: 844px;
+    /*-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;*/
+    background-size: cover;
 }
+
 
 .border-right .navbarItem {
     margin-top: 5px;
